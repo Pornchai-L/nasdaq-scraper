@@ -37,3 +37,177 @@ exports.scrapeForStockList = function (req, res) {
         });
 }
 
+exports.scrapeForNASDAQChart = function (req, res) {
+    var nightmare = Nightmare({ show: false });
+    nightmare.goto('http://nasdaq.com');
+    nightmare.click('#indexTableRow0')
+        .wait(function () {
+            if (document.querySelector('#indexvolume a').innerText == 'NASDAQ Composite') {
+                return true;
+            } else {
+                return false;
+            }
+        })
+        .evaluate(function () {
+            return { title: document.querySelector('#indexvolume a').innerText,
+                     html: document.querySelector('#charteriffic').innerHTML };
+        })
+        .end()
+        .then(function (result) {
+            res.send(result);
+        })
+        .catch(function (error) {
+            res.status(404).send('Bad Request : '+error);
+        });
+};
+
+exports.scrapeForNASDAQ100Chart = function (req, res) {
+    var nightmare = Nightmare({ show: false });
+    nightmare.goto('http://nasdaq.com');
+    nightmare.click('#indexTableRow1')
+        .wait(function () {
+            if (document.querySelector('#indexvolume a').innerText == 'NASDAQ-100 Index' &&
+                document.querySelector('#charteriffic').getAttribute('data-highcharts-chart') != 3) {
+                return true;
+            } else {
+                return false;
+            }
+        })
+        .evaluate(function () {
+            return { title: document.querySelector('#indexvolume a').innerText,
+                     html: document.querySelector('#charteriffic').innerHTML };
+        })
+        .end()
+        .then(function (result) {
+            res.send(result);
+        })
+        .catch(function (error) {
+            res.status(404).send('Bad Request : '+error);
+        });
+};
+
+exports.scrapeForNASDAQPreChart = function (req, res) {
+    var nightmare = Nightmare({ show: false });
+    nightmare.goto('http://nasdaq.com');
+    nightmare.click('#indexTableRow2')
+        .wait(function () {
+            if (document.querySelector('#indexvolume a').innerText == 'NASDAQ-100 Pre-Market Indicator' &&
+                document.querySelector('#charteriffic').getAttribute('data-highcharts-chart') != 3) {
+                return true;
+            } else {
+                return false;
+            }
+        })
+        .evaluate(function () {
+            return { title: document.querySelector('#indexvolume a').innerText,
+                     html: document.querySelector('#charteriffic').innerHTML };
+        })
+        .end()
+        .then(function (result) {
+            res.send(result);
+        })
+        .catch(function (error) {
+            res.status(404).send('Bad Request : '+error);
+        });
+};
+
+exports.scrapeForNASDAQAfterChart = function (req, res) {
+    var nightmare = Nightmare({ show: false });
+    nightmare.goto('http://nasdaq.com');
+    nightmare.click('#indexTableRow3')
+        .wait(function () {
+            if (document.querySelector('#indexvolume a').innerText == 'NASDAQ-100 After Hours Indicator' &&
+                document.querySelector('#charteriffic').getAttribute('data-highcharts-chart') != 3) {
+                return true;
+            } else {
+                return false;
+            }
+        })
+        .evaluate(function () {
+            return { title: document.querySelector('#indexvolume a').innerText,
+                     html: document.querySelector('#charteriffic').innerHTML };
+        })
+        .end()
+        .then(function (result) {
+            res.send(result);
+        })
+        .catch(function (error) {
+            res.status(404).send('Bad Request : '+error);
+        });
+};
+
+exports.scrapeForDJIAChart = function (req, res) {
+    var nightmare = Nightmare({ show: false });
+    nightmare.goto('http://nasdaq.com');
+    nightmare.click('#indexTableRow4')
+        .wait(function () {
+            if (document.querySelector('#indexvolume a').innerText == 'Dow Jones Industrial Index' &&
+                document.querySelector('#charteriffic').getAttribute('data-highcharts-chart') != 3) {
+                return true;
+            } else {
+                return false;
+            }
+        })
+        .evaluate(function () {
+            return { title: document.querySelector('#indexvolume a').innerText,
+                     html: document.querySelector('#charteriffic').innerHTML };
+        })
+        .end()
+        .then(function (result) {
+            res.send(result);
+        })
+        .catch(function (error) {
+            res.status(404).send('Bad Request : '+error);
+        });
+};
+
+exports.scrapeForSP500Chart = function (req, res) {
+    var nightmare = Nightmare({ show: false });
+    nightmare.goto('http://nasdaq.com');
+    nightmare.click('#indexTableRow5')
+        .wait(function () {
+            if (document.querySelector('#indexvolume a').innerText == 'S&P 500 Index' &&
+                document.querySelector('#charteriffic').getAttribute('data-highcharts-chart') != 3) {
+                return true;
+            } else {
+                return false;
+            }
+        })
+        .evaluate(function () {
+            return { title: document.querySelector('#indexvolume a').innerText,
+                     html: document.querySelector('#charteriffic').innerHTML };
+        })
+        .end()
+        .then(function (result) {
+            res.send(result);
+        })
+        .catch(function (error) {
+            res.status(404).send('Bad Request : '+error);
+        });
+};
+
+exports.scrapeForRussell2000Chart = function (req, res) {
+    var nightmare = Nightmare({ show: false });
+    nightmare.goto('http://nasdaq.com');
+    nightmare.click('#indexTableRow6')
+        .wait(function () {
+            if (document.querySelector('#indexvolume a').innerText == 'Russell 2000 Index' &&
+                document.querySelector('#charteriffic').getAttribute('data-highcharts-chart') != 3) {
+                return true;
+            } else {
+                return false;
+            }
+        })
+        .evaluate(function () {
+            return { title: document.querySelector('#indexvolume a').innerText,
+                     html: document.querySelector('#charteriffic').innerHTML };
+        })
+        .end()
+        .then(function (result) {
+            res.send(result);
+        })
+        .catch(function (error) {
+            res.status(404).send('Bad Request : '+error);
+        });
+};
+
