@@ -137,3 +137,34 @@ exports.updateStockList = function(data, callback) {
 exports.dropStockAll = function() {
 	mdb.collection('stocks').remove();
 };
+
+exports.getSVGChart = function(stockid, callback) {
+	mdb.collection('svgchart')
+		.findOne({ stockid })
+		.then(function(response) {
+			mdb.close();
+			callback({ status:'ok', data:data});
+		})
+		.catch(function(error) {
+			console.error(error);
+			callback({ status:'error', data:null});
+		});
+};
+
+exports.updateSVGChart = function(item, callback) {
+	mdb.collection('svgchart').update({ 	
+			stockId: item.stockId 
+		},{
+			stockId: item.stockId,
+			svgchart: item.svgchart,
+        	timeStamp: item.timeStamp
+		},{
+			w:1
+		}, function(error) {
+			console.error(error);
+		});
+};
+
+exports.dropSVGChartAll = function() {
+	mdb.collection('svgcharts').remove();
+};
