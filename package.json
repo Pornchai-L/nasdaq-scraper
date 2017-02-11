@@ -1,0 +1,32 @@
+{
+  "name": "testjs",
+  "version": "1.0.0",
+  "description": "example",
+  "main": "index.js",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "axios": "^0.15.0",
+    "body-parser": "^1.15.2",
+    "ejs": "^2.5.5",
+    "express": "^4.14.0",
+    "grunt-closure-tools": "^0.9.8",
+    "grunt-contrib-jshint": "^0.11.0",
+    "grunt-contrib-less": "^1.0.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "load-grunt-tasks": "^3.1.0",
+    "mongodb": "^2.2.22",
+    "winston": "^2.2.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.9.0",
+    "babel-core": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "eslint": "^3.1.1",
+    "nodemon": "^1.9.2",
+    "webpack": "^1.13.2",
+    "mocha": "^2.5.3",
+    "chai": "^3.5.0",
+    "supertest": "^1.2.0"
+  }
+}
