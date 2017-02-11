@@ -93,3 +93,47 @@ exports.importDummySVGChart = function(res) {
 		mdb.close();
     });
 };
+
+exports.getStockList = function(callback) {
+	mdb.collection('stocks')
+		.find({})
+		.toArray(function(err, stocks) {
+			assert.equal(err, null);
+			callback(stocks);
+		});
+};
+
+exports.insertStockList = function(data, callback) {
+	mdb.collection('stocks').insertMany(data)
+		.then(function(response) {
+      		mdb.close();
+      		callback({ status:'ok', data:data});
+    	})
+    	.catch(function(error) {
+			console.error(error);
+			callback({ status:'error', data:[]});
+		});
+};
+
+exports.updateStockList = function(data, callback) {
+	for (var index=0; index<data.length; index++) {
+		var item = data[index];
+		mdb.collection('stocks').update({ 	
+			stockId: item.stockId 
+		},{
+			stockId: item.stockId,
+			netChange: item.netChange,
+        	stockName: item.stockName,
+        	stockValue: item.stockValue,
+        	timeStamp: item.timeStamp
+		},{
+			w:1
+		}, function(error) {
+			console.error(error);
+		});
+	}
+};
+
+exports.dropStockAll = function() {
+	mdb.collection('stocks').remove();
+};
