@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sample Nasdaq Project</title>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				console.log('ready!');
+				$("#button1").click(function(){ 
+				    $.get("/stocklist", function(resp, status){
+				        for (var index=0; resp.data.length; index++) {
+				        	var item = resp.data[index];
+				        	var cols = $('#Table'+ item.stockId +' td');
+				        	$(cols[0]).html('<b>'+ item.stockName + '</b>');
+				        	$(cols[1]).html(item.stockValue);
+
+				        	var netChangeString = item.netChange.trim();
+				        	if (netChangeString[0] == '-') {
+				        		$(cols[2]).attr('style', 'color:red');
+				        		$(cols[2]).html(netChangeString);
+				        	} else {
+				        		$(cols[2]).attr('style', 'color:#387C2C');
+				        		$(cols[2]).html(netChangeString);
+				        	}
+				        }
+				    });
+				});
+			});
+			
+			function requestSVGChart(id) {
+				$('#charttitle').html('<h2>Loading...</h2');
+				$('#svgchart').html("");
+
+				$.post("/scrapechart", {
+			        "stockId": id
+			    },
+			    function(data, status){
+			        $('#charttitle').html('<h2>'+data.title+'</h2');
+			        $('#svgchart').html(data.html);
+			    });
+			}
+		</script>
+</head>
+<body>
+  <h1>Scraper NASDAQ Index</h1>
+  <p>This is the Stock Market Activity and click index to see a price chart</p><button id="button1">get data</button>
+  
+  <table id="indexTable" class="floatL marginB5px" style="columsspp">
+    <thead>
+    <tr>
+        <th>Index</th>
+        <th>Value</th>
+        <th>Change Net / %</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr id="Tablestock0" onclick="requestSVGChart(0)" class="selected">
+		<td></td>
+		<td></td>
+		<td style="color:#387C2C"><div class="indexChange"></div></td>
+	</tr>
+	<tr id="Tablestock1" onclick="requestSVGChart(1)" class="selected">
+		<td></td>
+		<td></td>
+		<td style="color:#387C2C"><div class="indexChange"></div></td>
+	</tr>
+	<tr id="Tablestock2" onclick="requestSVGChart(2)" class="selected">
+		<td></td>
+		<td></td>
+		<td style="color:#387C2C"><div class="indexChange"></div></td>
+	</tr>
+	<tr id="Tablestock3" onclick="requestSVGChart(3)" class="selected">
+		<td></td>
+		<td></td>
+		<td style="color:#387C2C"><div class="indexChange"></div></td>
+	</tr>
+	<tr id="Tablestock4" onclick="requestSVGChart(4)" class="selected">
+		<td></td>
+		<td></td>
+		<td style="color:#387C2C"><div class="indexChange"></div></td>
+	</tr>
+	<tr id="Tablestock5" onclick="requestSVGChart(5)" class="selected">
+		<td></td>
+		<td></td>
+		<td style="color:#387C2C"><div class="indexChange"></div></td>
+	</tr>
+	<tr id="Tablestock6" onclick="requestSVGChart(6)" class="selected">
+		<td></td>
+		<td></td>
+		<td style="color:#387C2C"><div class="indexChange"></div></td>
+	</tr>
+</tbody></table>
+<span id="charttitle">Title</span>
+<div id="svgchart"></div>
+</body>
+</html>

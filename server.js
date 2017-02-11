@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var dataProvider = require('./dbmodel/dataprovider');
 var express = require('express');
 var server = express();
+var path = require('path');
 var axios = require('axios');
 var refreshTimeout = 5;
 var schedule = require('node-schedule');
@@ -121,6 +122,10 @@ server.post('/stockchart', function(req, res) {
 				});
 			break;
 	}
+});
+
+server.get('/public', function (req, res){
+    res.sendFile(path.join(__dirname + '/public/main.html'));
 });
 
 server.listen(config.port, config.host, function () {
