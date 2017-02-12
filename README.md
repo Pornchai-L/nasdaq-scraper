@@ -15,3 +15,26 @@ To get data all 7 Index value, the process is defined the schedule to do it ever
 This sample uses Node.js which is a very powerful JavaScript-based framework/platform built on Google Chrome's JavaScript V8 Engine. It is used to develop I/O intensive web applications like video streaming sites, single-page applications, and other web applications. As the above, it is not enough to Scrape the data from website. So I use Express further, Express is a minimal and flexible Node.js web application framework that provides a robust set of features to develop web and mobile applications. It facilitates the rapid development of Node based Web applications. Following are some of the core features of Express framework. The main example, I will use middleware to respond to HTTP Requests and define a routing table which is used to perform different actions based on RESTful and URL. Each example do not build from dynamically render HTML Pages based on passing arguments to templates. This is the qualification of Express that focuses to Scrape the data and create RESTful API to support client even website, mobile or other services.
 
 ## Demo
+
+After installation as prerequisite step, this example is a simple static HTML that uses Scrape method. Using the Get Data button for retrieving the table of data chart from NASDAQ website. It can change the data in the price chart by clicking menu stock at each row then Scrape will process and present the output on screen.
+
+![alt text](https://dl.dropboxusercontent.com/u/99122912/scraper%20screen.png "Nasdaq Index and Chart example")
+
+## Prerequisite
+
+1. Node version 6.9.1 or newer version, available at https://nodejs.org/en/download/
+
+2. Mongo Database is for collecting the data of stock and SVG Chart. The version should be 2.2+, available at https://www.mongodb.com/download-center  
+Moreover, it would be better if we send the tool for monitoring Mongo Database by Robomongo, available at https://robomongo.org/download
+
+
+## Installation
+1. Start cloning this project.
+2. Create new mongo database as port localhost:27017/test and create C:\data directory
+3. Run the command: npm install.
+4. Run the command: mongo for starting database initial and connectivity.
+5. Run the command: npm install –g grunt-cli
+6. Run the command: npm install –save nightmare
+7. Run the command: npm install node-schedule
+8. Run the command: grunt start.
+9. You can will be available on localhost:8080
