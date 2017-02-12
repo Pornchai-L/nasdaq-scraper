@@ -20,6 +20,17 @@ After installation as prerequisite step, this example is a simple static HTML th
 
 ![alt text](https://dl.dropboxusercontent.com/u/99122912/scraper%20screen.png "Nasdaq Index and Chart example")
 
+## Set of API
+
+API divides into 2 parts; 
+1. Basic API, a service is directly working for client.
+2. Scrape, the API is for getting the data from NASDAQ website
+
+| Endpoint         | Description  |
+| -----------------|:-------------:|
+| /stocklist       | To run “get method”, the process will get and keep the data from website then send it back to client. When user needs the data again within 5 minutes, it will retrieve the data in database to present on screen. Otherwise, after 5 minutes the process will get new data and replace the ex-data in the first place. |
+
+
 ## Prerequisite
 
 1. Node version 6.9.1 or newer version, available at https://nodejs.org/en/download/
