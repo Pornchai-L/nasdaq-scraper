@@ -10,7 +10,7 @@ MongoClient.connect(config.mongodbUri, function(err, db) {
   mdb = db;
 });
 
-exports.importDummyStockData = function(res) {
+exports.importDummyStockData = function(res, callback) {
 	mdb.collection('stocks').insertMany([{
         "netChange": "\n8.23 ▲ 0.15%\n",
         "stockId": "stock0",
@@ -56,10 +56,11 @@ exports.importDummyStockData = function(res) {
     }]).then(function(response) {
 		res.send('ok');
 		mdb.close();
+        callback({ status:'ok' });
     });
 };
 
-exports.importDummySVGChart = function(res) {
+exports.importDummySVGChart = function(res, callback) {
 	mdb.collection('svgcharts').insertMany([{
         "stockId": "stock0",
         "svgchart": "",
@@ -91,6 +92,7 @@ exports.importDummySVGChart = function(res) {
     }]).then(function(response) {
 		res.send('ok');
 		mdb.close();
+        callback({ status:'ok' });
     });
 };
 
@@ -134,8 +136,12 @@ exports.updateStockList = function(data, callback) {
 	}
 };
 
-exports.dropStockAll = function() {
-	mdb.collection('stocks').remove();
+exports.dropStockAll = function(callback) {
+	mdb.collection('stocks').remove()
+        .then(function(response) {
+            mdb.close();
+            callback({ status:'ok' });
+        });
 };
 
 exports.getSVGChart = function(stockid, callback) {
