@@ -121,6 +121,9 @@ server.post('/stockchart', function(req, res) {
 					res.send(response.data);
 				});
 			break;
+
+		default:
+			 res.status(404).send('Bad Request');
 	}
 });
 
@@ -131,3 +134,5 @@ server.get('/public', function (req, res){
 server.listen(config.port, config.host, function () {
   console.log('Example app listening on port: ' + config.port);
 });
+
+module.exports = server;
