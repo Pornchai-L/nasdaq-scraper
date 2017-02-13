@@ -1,6 +1,6 @@
 var Nightmare = require('nightmare');
 
-exports.scrapeForStockList = function (req, res) {
+exports.scrapeForStockList = function (req, res, callback) {
     var nightmare = Nightmare({ show: false });
     nightmare
         .goto('http://nasdaq.com')
@@ -31,13 +31,15 @@ exports.scrapeForStockList = function (req, res) {
         .end()
         .then(function (result) {
             res.send(result);
+            callback({ status:'ok', data: result });
         })
         .catch(function (error) {
             res.status(404).send('Bad Request : '+error);
+            callback({ status:'error', data: [] });
         });
 }
 
-exports.scrapeForNASDAQChart = function (req, res) {
+exports.scrapeForNASDAQChart = function (req, res, callback) {
     var nightmare = Nightmare({ show: false });
     nightmare.goto('http://nasdaq.com');
     nightmare.click('#indexTableRow0')
@@ -55,13 +57,15 @@ exports.scrapeForNASDAQChart = function (req, res) {
         .end()
         .then(function (result) {
             res.send(result);
+            callback({ status:'ok', data: result });
         })
         .catch(function (error) {
             res.status(404).send('Bad Request : '+error);
+            callback({ status:'error', data: [] });
         });
 };
 
-exports.scrapeForNASDAQ100Chart = function (req, res) {
+exports.scrapeForNASDAQ100Chart = function (req, res, callback) {
     var nightmare = Nightmare({ show: false });
     nightmare.goto('http://nasdaq.com');
     nightmare.click('#indexTableRow1')
@@ -80,13 +84,15 @@ exports.scrapeForNASDAQ100Chart = function (req, res) {
         .end()
         .then(function (result) {
             res.send(result);
+            callback({ status:'ok', data: result });
         })
         .catch(function (error) {
             res.status(404).send('Bad Request : '+error);
+            callback({ status:'error', data: [] });
         });
 };
 
-exports.scrapeForNASDAQPreChart = function (req, res) {
+exports.scrapeForNASDAQPreChart = function (req, res, callback) {
     var nightmare = Nightmare({ show: false });
     nightmare.goto('http://nasdaq.com');
     nightmare.click('#indexTableRow2')
@@ -105,13 +111,14 @@ exports.scrapeForNASDAQPreChart = function (req, res) {
         .end()
         .then(function (result) {
             res.send(result);
+            callback({ status:'ok', data: result });
         })
         .catch(function (error) {
             res.status(404).send('Bad Request : '+error);
         });
 };
 
-exports.scrapeForNASDAQAfterChart = function (req, res) {
+exports.scrapeForNASDAQAfterChart = function (req, res, callback) {
     var nightmare = Nightmare({ show: false });
     nightmare.goto('http://nasdaq.com');
     nightmare.click('#indexTableRow3')
@@ -130,13 +137,15 @@ exports.scrapeForNASDAQAfterChart = function (req, res) {
         .end()
         .then(function (result) {
             res.send(result);
+            callback({ status:'ok', data: result });
         })
         .catch(function (error) {
             res.status(404).send('Bad Request : '+error);
+            callback({ status:'error', data: [] });
         });
 };
 
-exports.scrapeForDJIAChart = function (req, res) {
+exports.scrapeForDJIAChart = function (req, res, callback) {
     var nightmare = Nightmare({ show: false });
     nightmare.goto('http://nasdaq.com');
     nightmare.click('#indexTableRow4')
@@ -155,13 +164,15 @@ exports.scrapeForDJIAChart = function (req, res) {
         .end()
         .then(function (result) {
             res.send(result);
+            callback({ status:'ok', data: result });
         })
         .catch(function (error) {
             res.status(404).send('Bad Request : '+error);
+            callback({ status:'error', data: [] });
         });
 };
 
-exports.scrapeForSP500Chart = function (req, res) {
+exports.scrapeForSP500Chart = function (req, res, callback) {
     var nightmare = Nightmare({ show: false });
     nightmare.goto('http://nasdaq.com');
     nightmare.click('#indexTableRow5')
@@ -180,13 +191,15 @@ exports.scrapeForSP500Chart = function (req, res) {
         .end()
         .then(function (result) {
             res.send(result);
+            callback({ status:'ok', data: result });
         })
         .catch(function (error) {
             res.status(404).send('Bad Request : '+error);
+            callback({ status:'error', data: [] });
         });
 };
 
-exports.scrapeForRussell2000Chart = function (req, res) {
+exports.scrapeForRussell2000Chart = function (req, res, callback) {
     var nightmare = Nightmare({ show: false });
     nightmare.goto('http://nasdaq.com');
     nightmare.click('#indexTableRow6')
@@ -205,9 +218,11 @@ exports.scrapeForRussell2000Chart = function (req, res) {
         .end()
         .then(function (result) {
             res.send(result);
+            callback({ status:'ok', data: result });
         })
         .catch(function (error) {
             res.status(404).send('Bad Request : '+error);
+            callback({ status:'error', data: [] });
         });
 };
 
