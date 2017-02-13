@@ -82,3 +82,24 @@ There are many options of Module or Library for use. I have tried a few of them 
 Because this method has to simulate clicking web page to get SVG chart of each stock, so it needs a tool to support dynamic page and simulate mouse event. I found Zombie.js and Casper.js, theses are appropriated to use. But after using them, it showed the result that they were not suitable to work with Node version. I searched other tools and found Nightmare; this tool is more useful and coding easily because it can work separately. 
 
 *Nightmare* is a high-level browser automation library. The goal is to expose just a few simple methods, and have an API that feels synchronous for each block of scripting, rather than deeply nested callbacks. It's designed for automating tasks across sites that don't have APIs. Under the covers it uses Electron, which is similar to PhantomJS but roughly 2 times faster and more modern.
+
+###Testing
+
+To do BDD testing on node, it is the first time of my experience. Actually I do only Unit Testing in UI and use Karma, Jasmine. It may have the difference of 
+the method or the concept of building test case. However, it is not that hard to adapt and improve. This project uses Mocha to do BDD test and Chai to assert the data for testing and to build the automation test. This method is helpful for testing every time when code changing.  
+
+###Build Tools
+
+Grunt is the additional part of Node.js. It is similar to gulp.js but works slower. It should be written in the plug-in part further. This example uses plug-in Watch to run the defined tasks. 
+
+| Command                   | Description  |
+| --------------------------|:-------------|
+| grunt start               | Start Node application and Watch plug-in when the code is changed |
+| grunt test                | Run Chai and Mocha test on the application |
+
+###Future works
+
+Due to the fact that I have only few days to develop this example, it may have other solution or library better. At least, the example can get the data from NASDAQ website. I make it clean and easy to understand. There are 3 things that I have to mention;
+1.	Security – In this example does not define the security level. It has to improve in cookie-session or use helmet.js to prevent the insecure situation.
+2.	Testing – The testing is not cover every part of process, it should do further.
+3.	Logging – This example still does not have a logging tool for searching or verifying the error. 
