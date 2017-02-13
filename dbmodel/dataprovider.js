@@ -162,6 +162,7 @@ exports.updateSVGChart = function(item, callback) {
 			stockId: item.stockId 
 		},{
 			stockId: item.stockId,
+            title: item.title,
 			svgchart: item.svgchart,
         	timeStamp: item.timeStamp
 		},{
@@ -171,6 +172,10 @@ exports.updateSVGChart = function(item, callback) {
 		});
 };
 
-exports.dropSVGChartAll = function() {
-	mdb.collection('svgcharts').remove();
+exports.dropSVGChartAll = function(callback) {
+	mdb.collection('svgcharts').remove()
+        .then(function(response) {
+            mdb.close();
+            callback({ status:'ok' });
+        });
 };
