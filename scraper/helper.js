@@ -51,8 +51,13 @@ exports.scrapeForNASDAQChart = function (req, res, callback) {
             }
         })
         .evaluate(function () {
-            return { title: document.querySelector('#indexvolume a').innerText,
-                     html: document.querySelector('#charteriffic').innerHTML };
+            var timeStamp = (new Date()).getTime();
+            return  { 
+                        stockId: "stock0",
+                        title: document.querySelector('#indexvolume a').innerText,
+                        html: document.querySelector('#charteriffic').innerHTML,
+                        timeStamp: timeStamp 
+                    };
         })
         .end()
         .then(function (result) {
@@ -78,8 +83,13 @@ exports.scrapeForNASDAQ100Chart = function (req, res, callback) {
             }
         })
         .evaluate(function () {
-            return { title: document.querySelector('#indexvolume a').innerText,
-                     html: document.querySelector('#charteriffic').innerHTML };
+            var timeStamp = (new Date()).getTime();
+            return  {
+                        stockId: "stock1", 
+                        title: document.querySelector('#indexvolume a').innerText,
+                        html: document.querySelector('#charteriffic').innerHTML,
+                        timeStamp: timeStamp 
+                    };
         })
         .end()
         .then(function (result) {
@@ -105,8 +115,13 @@ exports.scrapeForNASDAQPreChart = function (req, res, callback) {
             }
         })
         .evaluate(function () {
-            return { title: document.querySelector('#indexvolume a').innerText,
-                     html: document.querySelector('#charteriffic').innerHTML };
+            var timeStamp = (new Date()).getTime();
+            return  {
+                        stockId: "stock2", 
+                        title: document.querySelector('#indexvolume a').innerText,
+                        html: document.querySelector('#charteriffic').innerHTML,
+                        timeStamp: timeStamp 
+                    };
         })
         .end()
         .then(function (result) {
@@ -131,8 +146,13 @@ exports.scrapeForNASDAQAfterChart = function (req, res, callback) {
             }
         })
         .evaluate(function () {
-            return { title: document.querySelector('#indexvolume a').innerText,
-                     html: document.querySelector('#charteriffic').innerHTML };
+            var timeStamp = (new Date()).getTime();
+            return  {
+                        stockId: "stock3", 
+                        title: document.querySelector('#indexvolume a').innerText,
+                        html: document.querySelector('#charteriffic').innerHTML,
+                        timeStamp: timeStamp 
+                    };
         })
         .end()
         .then(function (result) {
@@ -158,8 +178,13 @@ exports.scrapeForDJIAChart = function (req, res, callback) {
             }
         })
         .evaluate(function () {
-            return { title: document.querySelector('#indexvolume a').innerText,
-                     html: document.querySelector('#charteriffic').innerHTML };
+            var timeStamp = (new Date()).getTime();
+            return  {
+                        stockId: "stock4", 
+                        title: document.querySelector('#indexvolume a').innerText,
+                        html: document.querySelector('#charteriffic').innerHTML,
+                        timeStamp: timeStamp 
+                    };
         })
         .end()
         .then(function (result) {
@@ -185,8 +210,13 @@ exports.scrapeForSP500Chart = function (req, res, callback) {
             }
         })
         .evaluate(function () {
-            return { title: document.querySelector('#indexvolume a').innerText,
-                     html: document.querySelector('#charteriffic').innerHTML };
+            var timeStamp = (new Date()).getTime();
+            return  {
+                        stockId: "stock5", 
+                        title: document.querySelector('#indexvolume a').innerText,
+                        html: document.querySelector('#charteriffic').innerHTML,
+                        timeStamp: timeStamp 
+                    };
         })
         .end()
         .then(function (result) {
@@ -212,8 +242,13 @@ exports.scrapeForRussell2000Chart = function (req, res, callback) {
             }
         })
         .evaluate(function () {
-            return { title: document.querySelector('#indexvolume a').innerText,
-                     html: document.querySelector('#charteriffic').innerHTML };
+            var timeStamp = (new Date()).getTime();
+            return  {
+                        stockId: "stock6", 
+                        title: document.querySelector('#indexvolume a').innerText,
+                        html: document.querySelector('#charteriffic').innerHTML,
+                        timeStamp: timeStamp 
+                    };
         })
         .end()
         .then(function (result) {
