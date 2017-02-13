@@ -26,20 +26,25 @@ API divides into 2 parts;
 1. Basic API, a service is directly working for client.
 2. Scrape, the API is for getting the data from NASDAQ website
 
+###Basic API
+
 | Endpoint         | Description  |
 | -----------------|:-------------|
-| /stocklist       | To run “get method”, the process will get and keep the data from website then send it back to client. When user needs the data again within 5 minutes, it will retrieve the data in database to present on screen. Otherwise, after 5 minutes the process will get new data and replace the ex-data in the first place. --Output: 
---Status the stage of output is divided into 3 types;
-1. New; the stage is showing that the process just finished getting data from website.
-2. Renew; the stage is showing that the process just refreshing and putting in the database.
-3. Delay; the stage is showing the data that keeping in snapshot in 5 minutes ago
---Data: The data list of Stock Index which present in the table.
-1. stockId; Identification is referred in the database.
-2. stockName; Name of stock
-3. stockValue; the present value of stock
-4. netChange; 2 values are composed of arrow sign up and down, percent change.
-5. timestamp; a tick time to collect the data and calculate for comparing to get new data.
-|
+| /stocklist       | The process will get and keep the data from website then send it back to client. When user needs the data again within 5 minutes, it will retrieve the data in database to present on screen. Otherwise, after 5 minutes the process will get new data and replace the ex-data in the first place.<br /><br /> **Output:** <br /><br />`Status` the stage of output is divided into 3 types;<br />- *New*; the stage is showing that the process just finished getting data from website.<br />- *Renew*; the stage is showing that the process just refreshing and putting in the database.<br />- *Delay*; the stage is showing the data that keeping in snapshot in 5 minutes ago<br /><br />`Data`The data list of Stock Index which present in the table.<br />1. *stockId*; Identification is referred in the database.<br />2. *stockName*; Name of stock<br />3. *stockValue*; the present value of stock<br />4. *netChange*; 2 values are composed of arrow sign up and down, percent change.<br />5. *timestamp*; a tick time to collect the data and calculate for comparing to get new data.|
+| /stockchart      |The process will get data from chart from website and send it back to client. This stage is collecting cache data. It is developing.<br /><br /> **Input:** <br /><br />`stockId`: the value is between 0 – 6, each id is instead of stock chart;<br />*0* = NASDAQ chart<br />*1* = NASDAQ-100 (NDX) chart<br />*2* = Pre-Market (NDX) chart<br />*3* = After Hours (NDX) chart<br />*4* = DJIA chart<br />*5* = S&P 500 chart<br />*6* = Russell 2000 chart<br /><br /> **Output:** <br /><br />1. 	`title` is for the full name of stock index<br />2.	`html` is raw html that contain SVG chart, retrieving the data from NASDAQ website.<br />3	`timeStamp` is a tick time to collect the data and calculate for comparing to get new data.|
+
+###Scrape API
+
+| Endpoint                  | Description  |
+| --------------------------|:-------------|
+| /scrapestocklist          | To get all Index value on NASDAQ website at that time.|
+| /scrapenasdaqchart        | To get NASDAQ chart from NASDAQ website at that time.|
+| /scrapenasdaq100chart     | To get NASDAQ-100(NDX) chart from NASDAQ website at that time.|
+| /scrapepremarketchart     | To get Pre-Market(NDX) chart from NASDAQ website at that time.|
+| /scrapeaftermarketchart   | To get After Hours (NDX) chart from NASDAQ website at that time.|
+| /scrapedjiachart          | To get DJIA chart from NASDAQ website at that time.|
+| /scrapesp500chart         | To get S&P 500 chart from NASDAQ website at that time.|
+| /scraperussell2000chart   | To get Russell2000 chart from NASDAQ website at that time.|
 
 
 ## Prerequisite
