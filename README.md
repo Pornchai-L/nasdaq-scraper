@@ -65,3 +65,20 @@ Moreover, it would be better if we send the tool for monitoring Mongo Database b
 7. Run the command: npm install node-schedule
 8. Run the command: grunt start.
 9. You can will be available on localhost:8080
+
+##Related Technologies 
+
+###JavaScript
+
+The example, I do with Basic or Vanilla style because it is easy to understand. For coding in ES6, it is new trend and popular. However, my opinion it is quite hard to understand if people are not familiar of coding or study ES6 before. There is jquery in the example, it uses for get and post the information from NASDAQ website. Using service which is inside the same Node, I use AXIOS for this example which is Promise based HTTP client for the browser and node.js 
+
+###Database
+MongoDB is an open source, document-oriented database designed with both scalability and developer agility in mind. Instead of storing your data in tables and rows as you would with a relational database, in MongoDB you store JSON-like documents with dynamic schemas. The goal of MongoDB is to bridge the gap between key-value stores (which are fast and scalable) and relational databases (which have rich functionality).
+
+###Scrape a webpage
+There are many options of Module or Library for use. I have tried a few of them and found that they are different and have a limitation of each. For examples;
+*- JSDOM* is fairly slow because it has to recreate DOM and CSSOM in node.js.<br />*- PhantomJS/SlimerJS* are proper headless browsers, thus performances are ok and those are also very reliable.<br />*- Cheerio* is a light alternative to JSDOM. It doesn't recreate the entire page in node.js (it just download and parse the DOM) therefore you can't really click on buttons/links, but it's very fast to scrape the webpage.
+
+Because this method has to simulate clicking web page to get SVG chart of each stock, so it needs a tool to support dynamic page and simulate mouse event. I found Zombie.js and Casper.js, theses are appropriated to use. But after using them, it showed the result that they were not suitable to work with Node version. I searched other tools and found Nightmare; this tool is more useful and coding easily because it can work separately. 
+
+*Nightmare* is a high-level browser automation library. The goal is to expose just a few simple methods, and have an API that feels synchronous for each block of scripting, rather than deeply nested callbacks. It's designed for automating tasks across sites that don't have APIs. Under the covers it uses Electron, which is similar to PhantomJS but roughly 2 times faster and more modern.
