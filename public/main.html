@@ -35,7 +35,7 @@
 				$('#charttitle').html('<h2>Loading...</h2');
 				$('#svgchart').html("");
 
-				$.post("/scrapechart", {
+				$.post("/stockchart", {
 			        "stockId": id
 			    },
 			    function(data, status){
