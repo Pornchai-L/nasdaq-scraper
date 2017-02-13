@@ -99,7 +99,7 @@ Grunt is the additional part of Node.js. It is similar to gulp.js but works slow
 
 ###Future works
 
-Due to the fact that I have only few days to develop this example, it may have other solution or library better. At least, the example can get the data from NASDAQ website. I make it clean and easy to understand. There are 3 things that I have to mention;
-1.	Security – In this example does not define the security level. It has to improve in cookie-session or use helmet.js to prevent the insecure situation.
-2.	Testing – The testing is not cover every part of process, it should do further.
+Due to the fact that I have only few days to develop this example, it may have other solution or library better. At least, the example can get the data from NASDAQ website. I make it clean and easy to understand. There are 3 things that I have to mention;<br />
+1.	Security – In this example does not define the security level. It has to improve in cookie-session or use helmet.js to prevent the insecure situation.<br />
+2.	Testing – The testing is not cover every part of process, it should do further.<br />
 3.	Logging – This example still does not have a logging tool for searching or verifying the error. 
