@@ -27,8 +27,19 @@ API divides into 2 parts;
 2. Scrape, the API is for getting the data from NASDAQ website
 
 | Endpoint         | Description  |
-| -----------------|:-------------:|
-| /stocklist       | To run “get method”, the process will get and keep the data from website then send it back to client. When user needs the data again within 5 minutes, it will retrieve the data in database to present on screen. Otherwise, after 5 minutes the process will get new data and replace the ex-data in the first place. |
+| -----------------|:-------------|
+| /stocklist       | To run “get method”, the process will get and keep the data from website then send it back to client. When user needs the data again within 5 minutes, it will retrieve the data in database to present on screen. Otherwise, after 5 minutes the process will get new data and replace the ex-data in the first place. --Output: 
+--Status the stage of output is divided into 3 types;
+1. New; the stage is showing that the process just finished getting data from website.
+2. Renew; the stage is showing that the process just refreshing and putting in the database.
+3. Delay; the stage is showing the data that keeping in snapshot in 5 minutes ago
+--Data: The data list of Stock Index which present in the table.
+1. stockId; Identification is referred in the database.
+2. stockName; Name of stock
+3. stockValue; the present value of stock
+4. netChange; 2 values are composed of arrow sign up and down, percent change.
+5. timestamp; a tick time to collect the data and calculate for comparing to get new data.
+|
 
 
 ## Prerequisite
