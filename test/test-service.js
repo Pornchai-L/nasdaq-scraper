@@ -1,16 +1,16 @@
-const chai = require('chai');
-const assert = chai.assert;
-const expect = chai.expect;
-const chaiHttp = require('chai-http');
-const server = require('../server');
-const should = chai.should();
+var chai = require('chai');
+var assert = chai.assert;
+var expect = chai.expect;
+var chaiHttp = require('chai-http');
+var service = require('../service');
+var should = chai.should();
 chai.use(chaiHttp);
 // const dataprovider = require('../dbmodel/dataprovider');
 
-describe('test-server', function() {
+describe('test-service', function() {
   describe('/GET stocklist', function() {
     it('should return 200 and array of data', function() {
-      chai.request(server)
+      chai.request(service)
         .get('/stocklist')
         .end(function(res){
           res.should.have.status(200);
@@ -26,7 +26,7 @@ describe('test-server', function() {
       var input = {
         "stockId": 1
       };
-      chai.request(server)
+      chai.request(service)
         .post('/stockchart')
         .send(input)
         .end(function(res){
@@ -43,7 +43,7 @@ describe('test-server', function() {
       var input = {
         "stockId": 7
       };
-      chai.request(server)
+      chai.request(service)
         .post('/stockchart')
         .send(input)
         .end(function(res){

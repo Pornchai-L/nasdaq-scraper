@@ -1,7 +1,7 @@
-const chai = require('chai');
-const assert = chai.assert;
-const expect = chai.expect;
-const scraper = require('../../scraper/helper');
+var chai = require('chai');
+var assert = chai.assert;
+var expect = chai.expect;
+var scraper = require('../../scraper/helper');
 
 describe('test-helper', function() {
   describe('helper scrapeForStockList', function() {

@@ -1,7 +1,7 @@
-const chai = require('chai');
-const assert = chai.assert;
-const expect = chai.expect;
-const dataprovider = require('../../dbmodel/dataprovider');
+var chai = require('chai');
+var assert = chai.assert;
+var expect = chai.expect;
+var dataprovider = require('../../dbmodel/dataprovider');
 
 describe('Test dataprovider module', function() {
 	describe('dataprovider importDummyStockData', function() {
