@@ -37,14 +37,14 @@ API divides into 2 parts;
 
 | Endpoint                  | Description  |
 | --------------------------|:-------------|
-| /scrapestocklist          | To get all Index value on NASDAQ website at that time.|
-| /scrapenasdaqchart        | To get NASDAQ chart from NASDAQ website at that time.|
-| /scrapenasdaq100chart     | To get NASDAQ-100(NDX) chart from NASDAQ website at that time.|
-| /scrapepremarketchart     | To get Pre-Market(NDX) chart from NASDAQ website at that time.|
-| /scrapeaftermarketchart   | To get After Hours (NDX) chart from NASDAQ website at that time.|
-| /scrapedjiachart          | To get DJIA chart from NASDAQ website at that time.|
-| /scrapesp500chart         | To get S&P 500 chart from NASDAQ website at that time.|
-| /scraperussell2000chart   | To get Russell2000 chart from NASDAQ website at that time.|
+| /api/scrapestocklist          | To get all Index value on NASDAQ website at that time.|
+| /api/scrapenasdaqchart        | To get NASDAQ chart from NASDAQ website at that time.|
+| /api/scrapenasdaq100chart     | To get NASDAQ-100(NDX) chart from NASDAQ website at that time.|
+| /api/scrapepremarketchart     | To get Pre-Market(NDX) chart from NASDAQ website at that time.|
+| /api/scrapeaftermarketchart   | To get After Hours (NDX) chart from NASDAQ website at that time.|
+| /api/scrapedjiachart          | To get DJIA chart from NASDAQ website at that time.|
+| /api/scrapesp500chart         | To get S&P 500 chart from NASDAQ website at that time.|
+| /api/scraperussell2000chart   | To get Russell2000 chart from NASDAQ website at that time.|
 
 
 ## Prerequisite
