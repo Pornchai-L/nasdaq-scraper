@@ -17,6 +17,7 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-mocha-test": "^0.13.2",
     "load-grunt-tasks": "^3.1.0",
+    "mocha": "^2.5.3",
     "mongodb": "^2.2.22",
     "winston": "^2.2.0"
   },
